@@ -33,10 +33,11 @@ app.get('/', function(req, res) {
 
 app.get('/process_phrase', function(req, res) {
   const text = req.query.phrase || ' ';
-  analyzeText(text).then(function(analysis) {
+  analyzeText(text).then(function(results) {
     sendViewFile(res, 'result.html', {
       input: text,
-      analysis: analysis
+      sentiment: results.sentiment.score >= 0 ? 'Positive' : 'Negative',
+      analysis: results.analysis
     });
   }).catch(function(e) {
     res.end('Error: ' + e.message);
@@ -59,12 +60,16 @@ function sendViewFile(res, filename, data) {
 }
 
 function analyzeText(text) {
-  const language = Language();
-  const document = language.document({
+  const document = Language().document({
     content: text
   });
 
-  return document.detectEntities().then(function(results) {
-    return results[0];
-  });
+  return Promise.all([document.detectEntities(),
+                      document.detectSentiment()])
+                .then(function(values) {
+                  return {
+                    analysis: values[0][0],
+                    sentiment: values[1][0]
+                  };
+                });
 }
