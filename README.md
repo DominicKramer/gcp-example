@@ -1,1 +1,1 @@
-# gcp-example
+This repository contains a very simple Node.js app that demonstrates the Google Cloud Platform Natural Language API.  The UI is really basic because the focus of the app is on the use of the Natural Language API.
