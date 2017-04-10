@@ -32,9 +32,10 @@ app.get('/', function(req, res) {
 });
 
 app.get('/process_phrase', function(req, res) {
-  const text = req.query.phrase;
+  const text = req.query.phrase || ' ';
   analyzeText(text).then(function(analysis) {
     sendViewFile(res, 'result.html', {
+      input: text,
       analysis: analysis
     });
   }).catch(function(e) {
@@ -59,7 +60,6 @@ function sendViewFile(res, filename, data) {
 
 function analyzeText(text) {
   const language = Language();
-
   const document = language.document({
     content: text
   });

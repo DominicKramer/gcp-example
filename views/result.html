@@ -4,16 +4,21 @@
     <title>Results</title>
   </head>
   <body>
-    <% for (var item of analysis) { %>
-       Entity: <br>
-       <ul>
-         <li>Name: <%= item.name %></li>
-         <li>Type: <%= item.type %></li>
-         <li>Wikipedia Page: <a target="_blank" href="<%= item.metadata.wikipedia_url %>">
-             <%= item.metadata.wikipedia_url %></a></li>
-       </ul>
-    <% } %>
-    <br>
+    <h1>Input:</h1>
+    <p>
+      <%= input %>
+    </p>
+    <h1>Analysis:</h1>
+    <p>
+      <% for (var item of analysis) { %>
+        <h3>Entity:</h3>
+        <ul>
+          <li>Name: <%= item.name %></li>
+          <li>Wikipedia Page: <a target="_blank" href="<%= item.metadata.wikipedia_url %>">
+              <%= item.metadata.wikipedia_url %></a></li>
+        </ul>
+      <% } %>
+    </p>
     <a href="./"/>Back</a>
   </body>
 </html>
