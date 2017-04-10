@@ -1,0 +1,33 @@
+{
+  "name": "gcp-example",
+  "version": "0.1.0",
+  "description": "This is an example Node.js application that illustrates the use of some Google Cloud Platform APIs.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DominicKramer/gcp-example.git"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "keywords": [
+    "gcp",
+    "node.js",
+    "nodejs"
+  ],
+  "author": "Google Inc.",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/DominicKramer/gcp-example/issues"
+  },
+  "homepage": "https://github.com/DominicKramer/gcp-example#readme",
+  "dependencies": {
+    "@google-cloud/language": "^0.10.0",
+    "ejs": "^2.5.6",
+    "express": "^4.15.2"
+  }
+}

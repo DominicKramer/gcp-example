@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Results</title>
+  </head>
+  <body>
+    <% for (var item of analysis) { %>
+       Entity: <br>
+       <ul>
+         <li>Name: <%= item.name %></li>
+         <li>Type: <%= item.type %></li>
+         <li>Wikipedia Page: <a target="_blank" href="<%= item.metadata.wikipedia_url %>">
+             <%= item.metadata.wikipedia_url %></a></li>
+       </ul>
+    <% } %>
+    <br>
+    <a href="./"/>Back</a>
+  </body>
+</html>
